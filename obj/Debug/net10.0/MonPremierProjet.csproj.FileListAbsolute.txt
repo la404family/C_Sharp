@@ -1,0 +1,14 @@
+D:\Documents perso\0000Site internet\DEV\C-Sharp\bin\Debug\net10.0\MonPremierProjet.exe
+D:\Documents perso\0000Site internet\DEV\C-Sharp\bin\Debug\net10.0\MonPremierProjet.deps.json
+D:\Documents perso\0000Site internet\DEV\C-Sharp\bin\Debug\net10.0\MonPremierProjet.runtimeconfig.json
+D:\Documents perso\0000Site internet\DEV\C-Sharp\bin\Debug\net10.0\MonPremierProjet.dll
+D:\Documents perso\0000Site internet\DEV\C-Sharp\bin\Debug\net10.0\MonPremierProjet.pdb
+D:\Documents perso\0000Site internet\DEV\C-Sharp\obj\Debug\net10.0\MonPremierProjet.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents perso\0000Site internet\DEV\C-Sharp\obj\Debug\net10.0\MonPremierProjet.AssemblyInfoInputs.cache
+D:\Documents perso\0000Site internet\DEV\C-Sharp\obj\Debug\net10.0\MonPremierProjet.AssemblyInfo.cs
+D:\Documents perso\0000Site internet\DEV\C-Sharp\obj\Debug\net10.0\MonPremierProjet.csproj.CoreCompileInputs.cache
+D:\Documents perso\0000Site internet\DEV\C-Sharp\obj\Debug\net10.0\MonPremierProjet.dll
+D:\Documents perso\0000Site internet\DEV\C-Sharp\obj\Debug\net10.0\refint\MonPremierProjet.dll
+D:\Documents perso\0000Site internet\DEV\C-Sharp\obj\Debug\net10.0\MonPremierProjet.pdb
+D:\Documents perso\0000Site internet\DEV\C-Sharp\obj\Debug\net10.0\MonPremierProjet.genruntimeconfig.cache
+D:\Documents perso\0000Site internet\DEV\C-Sharp\obj\Debug\net10.0\ref\MonPremierProjet.dll
