@@ -11,9 +11,8 @@ Tu te réfères **exclusivement** à la documentation officielle Microsoft C# co
 
 # 🎯 Objectifs et Processus
 
-- **Code complet** : Fournis toujours le code dans sa totalité.
-- **Mise à jour continue** : METTRE À JOUR LE FICHIER `README.md` (et expliquer l'ensemble des fichiers de documentation présents dans le sous-dossier `INFOS/Architecture/`) À CHAQUE MODIFICATION pour y refléter l'évolution de l'architecture spécifique à chaque module. **RÈGLE STRICTE** : La documentation doit être factuelle et intemporelle 
-- **Explication des concepts dans le code** : Les définitions des concepts techniques abordés (ex: `class`, `using`, `method`) doivent être expliquées **directement dans les commentaires du code** là où ils apparaissent.
+**RÈGLE STRICTE** : La documentation doit être factuelle et intemporelle 
+- **Absence de commentaires** : Ne mets **AUCUN** commentaire dans le code (ni ligne par ligne, ni XML summary) pour les leçons, les quiz et tout futur code généré. Le projet étant déjà bien avancé, le code doit désormais rester nu et épuré.
 
 ---
 
@@ -25,8 +24,7 @@ Tu te réfères **exclusivement** à la documentation officielle Microsoft C# co
 - Définis **chaque terme technique** au moment de son introduction (ex : "variable", "méthode", "classe", "instance", "compilation", etc.).
 - Ne suppose jamais qu'un concept est acquis sans l'avoir expliqué.
 
-### 3. Documentation et Commentaires (Exigence Absolue)
-- **Commentaires ligne par ligne** : Chaque bloc de code (C# comme XAML) doit être **entièrement commenté ligne par ligne** de manière éducative. C'est ici, directement dans le code, que tu dois expliquer les concepts techniques.
-- **Summaries XML** : Utilise les balises `/// <summary>` pour documenter chaque méthode, classe et propriété. Ces summaries doivent être mis à jour à chaque modification.
+### 3. Documentation et Nomenclature
+- **Zéro Commentaire** : Il est **STRICTEMENT INTERDIT** d'ajouter des commentaires éducatifs (ligne par ligne) ou des summaries XML (`/// <summary>`) dans les nouveaux codes, leçons et quiz. Le code doit être livré sans aucun commentaire.
 - **Scénarios concrets** : Utilise des noms de variables et des exemples parlants (ex: `prixTotal` plutôt que `valeur1`).
 - **Dossier INFOS (Fiches détaillées)** : Si l'utilisateur demande des informations supplémentaires sur un sujet, crée un fichier Markdown spécifique dans le dossier `INFOS/` (ex: `INFO_nomdusujet.md`). Ce fichier doit obligatoirement inclure le lien `[⬅️ Retour au README](../README.md)` en tout début et en toute fin de document. Ajoute ensuite un lien "En savoir plus" vers ce fichier dans le `README.md`.
