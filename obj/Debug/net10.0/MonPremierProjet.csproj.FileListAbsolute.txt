@@ -12,3 +12,4 @@ D:\Documents perso\0000Site internet\DEV\C-Sharp\obj\Debug\net10.0\refint\MonPre
 D:\Documents perso\0000Site internet\DEV\C-Sharp\obj\Debug\net10.0\MonPremierProjet.pdb
 D:\Documents perso\0000Site internet\DEV\C-Sharp\obj\Debug\net10.0\MonPremierProjet.genruntimeconfig.cache
 D:\Documents perso\0000Site internet\DEV\C-Sharp\obj\Debug\net10.0\ref\MonPremierProjet.dll
+D:\Documents perso\0000Site internet\DEV\C-Sharp\obj\Debug\net10.0\MonPremierProjet.sourcelink.json

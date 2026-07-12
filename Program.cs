@@ -1,11 +1,47 @@
-// Program.cs est le point de départ de notre application. 
-// Quand on lance le programme, c'est ici que l'ordinateur commence à lire et exécuter les instructions.
-
-// Le mot-clé "using" indique à l'ordinateur d'utiliser les outils définis dans notre dossier "Modules" (notre espace de nom).
-// Un "namespace" (espace de noms) est comme un tiroir dans lequel on range notre code pour bien l'organiser.
+// "using" permet d'accéder à nos modules personnalisés et aux outils de base de C#.
+using System;
 using MonPremierProjet.Modules;
 
-// Ici, nous appelons (utilisons) une action (une "méthode") nommée "AfficherMessage".
-// Cette méthode se trouve dans notre composant externe nommé "Afficheur".
-// C'est comme si on disait : "Hé Afficheur, fais ton action AfficherMessage !".
-Afficheur.AfficherMessage();
+// On demande à notre module "Sauvegarde" de charger le profil complet de l'utilisateur.
+// On le stocke dans une variable nommée "monProfil" de type "Profil" (la classe que nous avons créée).
+Profil monProfil = Sauvegarde.ChargerProfil();
+
+// "bool" est un type de variable qui ne peut être que 'true' (vrai) ou 'false' (faux).
+// On l'utilise ici pour savoir si le programme doit continuer à tourner.
+bool continuer = true;
+
+// La boucle "while" (tant que) répète le code entre les accolades {} TANT QUE la condition est vraie.
+while (continuer)
+{
+    // On transmet l'objet Profil complet à l'Aiguilleur.
+    continuer = GestionnaireLecons.AfficherEtape(monProfil);
+
+    // Si on doit arrêter, on "break" (casse) la boucle while pour en sortir immédiatement.
+    if (continuer == false)
+    {
+        break;
+    }
+
+    // On lit la touche tapée par l'utilisateur (le ?? "" évite les avertissements si rien n'est tapé).
+    string choix = (Console.ReadLine() ?? "").ToUpper();
+
+    // On vérifie ce que l'utilisateur a tapé.
+    if (choix == "S")
+    {
+        // On sauvegarde le profil complet !
+        Sauvegarde.SauvegarderProfil(monProfil);
+    }
+    else if (choix == "R")
+    {
+        // On recule d'une étape sans aller en dessous de 1.
+        if (monProfil.EtapeActuelle > 1)
+        {
+            monProfil.EtapeActuelle--; 
+        }
+    }
+    else
+    {
+        // On avance à l'étape suivante.
+        monProfil.EtapeActuelle++;
+    }
+}

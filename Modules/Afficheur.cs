@@ -24,7 +24,22 @@ namespace MonPremierProjet.Modules
             // "Console" est l'outil fourni par C# pour interagir avec la fenêtre noire (la console).
             // "WriteLine" est une action (méthode) de cet outil qui écrit une ligne de texte avec un retour à la ligne automatique.
             // Le texte doit toujours être encadré par des guillemets doubles "".
-            Console.WriteLine("Hello World ! Externe..");
+            Console.WriteLine("Hello World !");
+        }
+
+        /// <summary>
+        /// Efface complètement l'écran et son historique (scrollback) pour un rendu parfait.
+        /// </summary>
+        // "public" et "static" pour pouvoir l'appeler facilement de n'importe où.
+        public static void NettoyerEcran()
+        {
+            // On utilise la commande classique pour vider la zone visible.
+            Console.Clear();
+            
+            // On envoie le code ANSI "3J" secret qui demande au terminal moderne 
+            // de supprimer totalement l'historique de défilement (le scroll) !
+            // "\x1b" est le caractère d'échappement (Échap) qui prévient la console qu'un ordre arrive.
+            Console.Write("\x1b[3J");
         }
     }
 }

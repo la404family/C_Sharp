@@ -1,10 +1,25 @@
-# Mon Premier Projet C#
-
-Bienvenue dans mon premier projet d'apprentissage de C# et .NET !
+# Cursus d'apprentissage C# et .NET
 
 ## But de l'application
-L'application est une simple console qui affiche le message "Hello World ! Externe..". Son principal objectif est d'apprendre comment structurer un programme C# en séparant le point d'entrée du reste de la logique.
+Cette application est une console interactive guidant l'utilisateur à travers différentes étapes d'apprentissage du langage C#. Le système intègre la navigation de leçon en leçon, la sauvegarde du profil de l'utilisateur (incluant les scores), et l'évaluation des connaissances via des modules de quiz interactifs.
+Une moyenne des scores est calculée et affichée de manière dynamique à la fin du cursus.
 
-## En savoir plus sur la structure
-Pour comprendre comment et pourquoi le code a été séparé entre le fichier principal et les modules, consultez la fiche détaillée :
-[En savoir plus sur l'organisation des fichiers](INFOS/Architecture/INFO_StructureProjet.md)
+## Architecture du projet
+Le code source est organisé de manière modulaire, appliquant le principe de séparation des responsabilités :
+- `LancerProjet.bat` : Script d'automatisation pour la compilation et l'exécution du projet via Windows Terminal ou PowerShell.
+- `Program.cs` : Point d'entrée principal du programme gérant la boucle d'exécution (`while`) et la lecture des choix de l'utilisateur.
+- `MonPremierProjet.csproj` : Fichier de configuration du projet C# pour le compilateur .NET.
+- `Modules/Afficheur.cs` : Composant dédié à l'affichage et au nettoyage bas niveau de l'interface console.
+- `Modules/GestionnaireLecons.cs` : Composant routeur dirigeant l'exécution de l'application vers la leçon ou le quiz correspondant à l'étape actuelle.
+- `Modules/Profil.cs` : Classe conteneur (objet) stockant et structurant les données du joueur (étape en cours, scores obtenus).
+- `Modules/Sauvegarde.cs` : Composant gérant exclusivement la persistance (lecture et écriture) des données du profil dans un fichier texte.
+- `Modules/Lecons/` : Sous-dossier contenant un fichier indépendant pour chaque leçon théorique (`Lecon1.cs` à `LeconXXX.cs`).
+- `Modules/Quizz/` : Sous-dossier contenant un fichier indépendant pour chaque évaluation (`Quizz1.cs` à `Quizzxxx.cs`).
+
+## Documentation Détaillée (`INFOS/Architecture/`)
+La documentation théorique expliquant les concepts techniques abordés dans ce projet est disponible dans le sous-dossier `INFOS/Architecture/`. 
+
+Ce dossier contient des fiches factuelles et intemporelles expliquant les choix d'architecture :
+- [INFO_StructureProjet.md](INFOS/Architecture/INFO_StructureProjet.md) : Explique le concept de séparation des responsabilités, le rôle de routeur, et l'organisation en modules.
+- [INFO_NavigationSauvegarde.md](INFOS/Architecture/INFO_NavigationSauvegarde.md) : Détaille l'utilisation des boucles de contrôle (`while`), des instructions conditionnelles (`if`), et le fonctionnement de l'écriture/lecture de données dans un fichier texte.
+- [INFO_TableauxObjets.md](INFOS/Architecture/INFO_TableauxObjets.md) : Explique l'utilisation de classes conteneurs (Programmation Orientée Objet) et des Tableaux (`Arrays`) pour structurer et sauvegarder de multiples données complexes.
