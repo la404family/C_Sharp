@@ -46,7 +46,40 @@ namespace MonPremierProjet.Modules
                 case 10:
                     Quizz2.Executer(profilActuel);
                     break;
-                // Si aucune leçon n'est trouvée (le chiffre de l'étape dépasse 10), c'est que le cursus est terminé !
+                case 11:
+                    Lecon9.Afficher();
+                    break;
+                case 12:
+                    Lecon10.Afficher();
+                    break;
+                case 13:
+                    Lecon11.Afficher();
+                    break;
+                case 14:
+                    Quizz3.Executer(profilActuel);
+                    break;
+                case 15:
+                    Lecon12.Afficher();
+                    break;
+                case 16:
+                    Lecon13.Afficher();
+                    break;
+                case 17:
+                    Lecon14.Afficher();
+                    break;
+                case 18:
+                    Lecon15.Afficher();
+                    break;
+                case 19:
+                    Lecon16.Afficher();
+                    break;
+                case 20:
+                    Lecon17.Afficher();
+                    break;
+                case 21:
+                    Quizz4.Executer(profilActuel);
+                    break;
+                // Si aucune leçon n'est trouvée (le chiffre de l'étape dépasse 21), c'est que le cursus est terminé !
                 // Grâce à ce fonctionnement dynamique, cette boucle s'adapte automatiquement à l'ajout de futures étapes.
                 default:
                     Afficheur.NettoyerEcran();
@@ -99,9 +132,12 @@ namespace MonPremierProjet.Modules
                         Console.WriteLine("Bravo, vous avez terminé la partie théorique du cursus sans faire de quiz !");
                     }
                     
-                    Console.WriteLine("\nAppuyez sur n'importe quelle touche pour fermer l'application.");
-                    Console.ReadKey();
-                    return false;
+                    Console.WriteLine("\n------------------------------------------------");
+                    Console.WriteLine("[R] Retour à la dernière leçon | [Q] Quitter");
+                    Console.WriteLine("Astuce: [Ctrl + R] Réinitialiser la progression et repartir de zéro.");
+                    
+                    // On retourne "true" pour laisser Program.cs gérer les touches au lieu de forcer la fermeture.
+                    return true;
             }
 
             Console.WriteLine("\n------------------------------------------------");

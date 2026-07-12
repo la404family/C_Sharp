@@ -10,27 +10,26 @@ Profil monProfil = Sauvegarde.ChargerProfil();
 // On l'utilise ici pour savoir si le programme doit continuer à tourner.
 bool continuer = true;
 
-// Vérification : si le nom d'utilisateur est vide, c'est qu'il s'agit d'une nouvelle partie (ou d'une vieille sauvegarde).
-// string.IsNullOrWhiteSpace vérifie si le texte est nul, vide, ou s'il ne contient que des espaces.
-if (string.IsNullOrWhiteSpace(monProfil.NomUtilisateur))
-{
-    Afficheur.NettoyerEcran();
-    Console.WriteLine("==================================================");
-    Console.WriteLine("   BIENVENUE DANS VOTRE CURSUS D'APPRENTISSAGE   ");
-    Console.WriteLine("==================================================\n");
-    Console.Write("Pour commencer, veuillez entrer votre prénom ou pseudo : ");
-    
-    // On enregistre la saisie dans le profil. S'il ne tape rien, on met "Elève" par défaut.
-    string saisie = Console.ReadLine() ?? "";
-    monProfil.NomUtilisateur = string.IsNullOrWhiteSpace(saisie) ? "Elève" : saisie;
-    
-    // On sauvegarde immédiatement ce nouveau profil.
-    Sauvegarde.SauvegarderProfil(monProfil, true);
-}
-
 // La boucle "while" (tant que) répète le code entre les accolades {} TANT QUE la condition est vraie.
 while (continuer)
 {
+    // Vérification : si le nom d'utilisateur est vide, c'est qu'il s'agit d'une nouvelle partie (ou après une réinitialisation).
+    // string.IsNullOrWhiteSpace vérifie si le texte est nul, vide, ou s'il ne contient que des espaces.
+    if (string.IsNullOrWhiteSpace(monProfil.NomUtilisateur))
+    {
+        Afficheur.NettoyerEcran();
+        Console.WriteLine("==================================================");
+        Console.WriteLine("   BIENVENUE DANS VOTRE CURSUS D'APPRENTISSAGE   ");
+        Console.WriteLine("==================================================\n");
+        Console.Write("Pour commencer, veuillez entrer votre prénom ou pseudo : ");
+        
+        // On enregistre la saisie dans le profil. S'il ne tape rien, on met "Elève" par défaut.
+        string saisieNom = Console.ReadLine() ?? "";
+        monProfil.NomUtilisateur = string.IsNullOrWhiteSpace(saisieNom) ? "Elève" : saisieNom;
+        
+        // On sauvegarde immédiatement ce nouveau profil.
+        Sauvegarde.SauvegarderProfil(monProfil, true);
+    }
     // On transmet l'objet Profil complet à l'Aiguilleur.
     continuer = GestionnaireLecons.AfficherEtape(monProfil);
 
