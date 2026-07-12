@@ -34,7 +34,19 @@ namespace MonPremierProjet.Modules
                 case 6:
                     Quizz1.Executer(profilActuel);
                     break;
-                // Si aucune leçon n'est trouvée (le chiffre de l'étape dépasse 6), c'est que le cursus est terminé !
+                case 7:
+                    Lecon6.Afficher();
+                    break;
+                case 8:
+                    Lecon7.Afficher();
+                    break;
+                case 9:
+                    Lecon8.Afficher();
+                    break;
+                case 10:
+                    Quizz2.Executer(profilActuel);
+                    break;
+                // Si aucune leçon n'est trouvée (le chiffre de l'étape dépasse 10), c'est que le cursus est terminé !
                 // Grâce à ce fonctionnement dynamique, cette boucle s'adapte automatiquement à l'ajout de futures étapes.
                 default:
                     Afficheur.NettoyerEcran();
@@ -53,6 +65,34 @@ namespace MonPremierProjet.Modules
                         Console.WriteLine($"Vous avez terminé votre cursus avec un résultat moyen de {moyenne} / 20 !");
                         Console.WriteLine($"Total des points cumulés : {profilActuel.ScoreTotal}");
                         Console.WriteLine($"Nombre de quiz effectués : {profilActuel.NombreQuizTermines}");
+
+                        // -- Génération du fichier texte de résultats --
+                        
+                        // On crée un tableau pour stocker les lignes du fichier.
+                        // La taille est dynamique : nombre de quiz + 4 lignes (titre, sauts de ligne, moyenne).
+                        string[] lignesResultat = new string[profilActuel.ScoresQuizz.Count + 4];
+                        
+                        // "ToUpper()" met le nom tout en majuscules.
+                        lignesResultat[0] = $"--- RESULTATS DU CURSUS DE {profilActuel.NomUtilisateur.ToUpper()} ---";
+                        lignesResultat[1] = ""; // Ligne vide
+                        
+                        // Une boucle pour lister les notes individuelles.
+                        for (int i = 0; i < profilActuel.ScoresQuizz.Count; i++)
+                        {
+                            // "i + 2" car les lignes 0 et 1 sont déjà occupées.
+                            lignesResultat[i + 2] = $"Quizz {i + 1} : {profilActuel.ScoresQuizz[i]} / 20";
+                        }
+                        
+                        lignesResultat[lignesResultat.Length - 2] = ""; // Ligne vide
+                        lignesResultat[lignesResultat.Length - 1] = $"Moyenne Globale : {moyenne} / 20";
+
+                        // On choisit un nom de fichier personnalisé.
+                        string nomFichier = $"Resultats_{profilActuel.NomUtilisateur}.txt";
+                        
+                        // On écrit le fichier sur le disque dur.
+                        System.IO.File.WriteAllLines(nomFichier, lignesResultat);
+                        
+                        Console.WriteLine($"\n✅ Un fichier récapitulatif '{nomFichier}' a été généré dans le dossier de l'application !");
                     }
                     else
                     {
@@ -65,7 +105,8 @@ namespace MonPremierProjet.Modules
             }
 
             Console.WriteLine("\n------------------------------------------------");
-            Console.WriteLine("[Entrée] Etape suivante | [R] Retour en arrière | [S] Sauvegarder");
+            Console.WriteLine("[Entrée] Etape suivante | [R] Retour en arrière | [Q] Quitter");
+            Console.WriteLine("Astuce: [Ctrl + R] Réinitialiser la progression et repartir de zéro.");
             
             return true;
         }

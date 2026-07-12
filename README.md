@@ -2,8 +2,7 @@
 
 ## But de l'application
 Cette application est une console interactive guidant l'utilisateur à travers différentes étapes d'apprentissage du langage C#. Le système intègre la navigation de leçon en leçon, la sauvegarde du profil de l'utilisateur (incluant les scores), et l'évaluation des connaissances via des modules de quiz interactifs.
-Une moyenne des scores est calculée et affichée de manière dynamique à la fin du cursus.
-
+Une moyenne des scores est calculée et affichée de manière dynamique, et **un fichier texte récapitulatif (certificat) est généré** à la toute fin du cursus.
 ## Architecture du projet
 Le code source est organisé de manière modulaire, appliquant le principe de séparation des responsabilités :
 - `LancerProjet.bat` : Script d'automatisation pour la compilation et l'exécution du projet via Windows Terminal ou PowerShell.
@@ -12,7 +11,7 @@ Le code source est organisé de manière modulaire, appliquant le principe de s�
 - `Modules/Afficheur.cs` : Composant dédié à l'affichage et au nettoyage bas niveau de l'interface console.
 - `Modules/GestionnaireLecons.cs` : Composant routeur dirigeant l'exécution de l'application vers la leçon ou le quiz correspondant à l'étape actuelle.
 - `Modules/Profil.cs` : Classe conteneur (objet) stockant et structurant les données du joueur (étape en cours, scores obtenus).
-- `Modules/Sauvegarde.cs` : Composant gérant exclusivement la persistance (lecture et écriture) des données du profil dans un fichier texte.
+- `Modules/Sauvegarde.cs` : Composant gérant la persistance des données. **Une sauvegarde automatique et silencieuse** garantit que la progression de l'utilisateur n'est jamais perdue, même en quittant via l'option dédiée `[Q] Quitter`. Il est aussi possible de **réinitialiser la sauvegarde** via le raccourci `[Ctrl + R]`.
 - `Modules/Lecons/` : Sous-dossier contenant un fichier indépendant pour chaque leçon théorique (`Lecon1.cs` à `LeconXXX.cs`).
 - `Modules/Quizz/` : Sous-dossier contenant un fichier indépendant pour chaque évaluation (`Quizz1.cs` à `Quizzxxx.cs`).
 

@@ -117,12 +117,27 @@ namespace MonPremierProjet.Modules.Quizz
             // --- Fin du quiz, on met à jour les données du joueur ---
             profilActuel.ScoreTotal += scoreObtenu;
             profilActuel.NombreQuizTermines++;
+            // On enregistre également la note spécifique de ce quiz dans notre Liste pour le récapitulatif final.
+            profilActuel.ScoresQuizz.Add(scoreObtenu);
 
             // Affichage de la page de résultat du quiz.
             Afficheur.NettoyerEcran();
             Console.WriteLine("=== RESULTAT DU QUIZ ===");
             Console.WriteLine("Félicitations, vous avez terminé cette évaluation !");
-            Console.WriteLine($"Score obtenu à ce quiz : {scoreObtenu} / 20\n");
+            Console.WriteLine($"Score obtenu à ce quiz : {scoreObtenu} / 20");
+            
+            // Si l'élève a terminé plus d'un quiz, on calcule et affiche sa moyenne globale.
+            if (profilActuel.NombreQuizTermines > 1)
+            {
+                // "(double)" force une division à virgule. "Math.Round" arrondit à 2 chiffres après la virgule.
+                double moyenne = Math.Round((double)profilActuel.ScoreTotal / profilActuel.NombreQuizTermines, 2);
+                Console.WriteLine($"Moyenne générale actuelle : {moyenne} / 20\n");
+            }
+            else
+            {
+                // Sinon, on passe simplement une ligne pour l'esthétique.
+                Console.WriteLine();
+            }
             
             // "if / else if / else" permet d'afficher un message personnalisé selon le score.
             if (scoreObtenu == 20)

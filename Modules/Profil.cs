@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 // Espace de noms pour nos modules.
 namespace MonPremierProjet.Modules
 {
@@ -7,6 +9,12 @@ namespace MonPremierProjet.Modules
     // Une classe peut servir de "Conteneur" pour regrouper plusieurs variables liées entre elles.
     public class Profil
     {
+        /// <summary>
+        /// Nom de l'utilisateur.
+        /// </summary>
+        // Le type "string" permet de stocker du texte.
+        public string NomUtilisateur = "";
+
         /// <summary>
         /// Numéro de l'étape en cours.
         /// </summary>
@@ -24,5 +32,11 @@ namespace MonPremierProjet.Modules
         /// </summary>
         // Cette valeur permet de diviser le ScoreTotal pour obtenir une moyenne.
         public int NombreQuizTermines = 0;
+
+        /// <summary>
+        /// Liste contenant le score obtenu à chaque quiz individuellement.
+        /// </summary>
+        // Une "List" est comme un tableau (Array) mais sa taille peut grandir dynamiquement !
+        public List<int> ScoresQuizz = new List<int>();
     }
 }

@@ -10,6 +10,24 @@ Profil monProfil = Sauvegarde.ChargerProfil();
 // On l'utilise ici pour savoir si le programme doit continuer à tourner.
 bool continuer = true;
 
+// Vérification : si le nom d'utilisateur est vide, c'est qu'il s'agit d'une nouvelle partie (ou d'une vieille sauvegarde).
+// string.IsNullOrWhiteSpace vérifie si le texte est nul, vide, ou s'il ne contient que des espaces.
+if (string.IsNullOrWhiteSpace(monProfil.NomUtilisateur))
+{
+    Afficheur.NettoyerEcran();
+    Console.WriteLine("==================================================");
+    Console.WriteLine("   BIENVENUE DANS VOTRE CURSUS D'APPRENTISSAGE   ");
+    Console.WriteLine("==================================================\n");
+    Console.Write("Pour commencer, veuillez entrer votre prénom ou pseudo : ");
+    
+    // On enregistre la saisie dans le profil. S'il ne tape rien, on met "Elève" par défaut.
+    string saisie = Console.ReadLine() ?? "";
+    monProfil.NomUtilisateur = string.IsNullOrWhiteSpace(saisie) ? "Elève" : saisie;
+    
+    // On sauvegarde immédiatement ce nouveau profil.
+    Sauvegarde.SauvegarderProfil(monProfil, true);
+}
+
 // La boucle "while" (tant que) répète le code entre les accolades {} TANT QUE la condition est vraie.
 while (continuer)
 {
@@ -19,29 +37,56 @@ while (continuer)
     // Si on doit arrêter, on "break" (casse) la boucle while pour en sortir immédiatement.
     if (continuer == false)
     {
+        // On effectue une sauvegarde automatique (silencieuse) avant de quitter à la fin du cursus.
+        Sauvegarde.SauvegarderProfil(monProfil, true);
         break;
     }
 
-    // On lit la touche tapée par l'utilisateur (le ?? "" évite les avertissements si rien n'est tapé).
-    string choix = (Console.ReadLine() ?? "").ToUpper();
+    // On utilise "Console.ReadKey(true)" au lieu de ReadLine. 
+    // Cela capte immédiatement la touche sans attendre "Entrée". 
+    // Le "true" empêche l'ordinateur d'afficher la lettre tapée à l'écran.
+    ConsoleKeyInfo saisie = Console.ReadKey(true);
 
-    // On vérifie ce que l'utilisateur a tapé.
-    if (choix == "S")
+    // On vérifie si l'utilisateur maintient la touche "Control" (Ctrl) enfoncée 
+    // EN MEME TEMPS que la touche "R" (pour Reset / Recommencer).
+    if (saisie.Modifiers == ConsoleModifiers.Control && saisie.Key == ConsoleKey.R)
     {
-        // On sauvegarde le profil complet !
-        Sauvegarde.SauvegarderProfil(monProfil);
+        // On détruit le fichier de sauvegarde
+        Sauvegarde.ReinitialiserProfil();
+        
+        // On remplace notre profil actuel par une toute nouvelle boîte vierge (Etape 1, Score 0)
+        monProfil = new Profil();
+        
+        // On indique à la console d'effacer l'écran pour repartir au propre
+        Afficheur.NettoyerEcran();
+        
+        // "continue" force la boucle while à repartir immédiatement au début (tour suivant), 
+        // affichant ainsi l'étape 1 sans lire le code en dessous.
+        continue;
     }
-    else if (choix == "R")
+
+    // On analyse la touche simple tapée par l'utilisateur
+    if (saisie.Key == ConsoleKey.Q)
+    {
+        // L'utilisateur souhaite quitter. On sauvegarde silencieusement sa progression !
+        Sauvegarde.SauvegarderProfil(monProfil, true);
+        break;
+    }
+    else if (saisie.Key == ConsoleKey.R) // R seul (sans Ctrl)
     {
         // On recule d'une étape sans aller en dessous de 1.
         if (monProfil.EtapeActuelle > 1)
         {
             monProfil.EtapeActuelle--; 
+            // Sauvegarde automatique et silencieuse du recul de l'étape.
+            Sauvegarde.SauvegarderProfil(monProfil, true);
         }
     }
-    else
+    else if (saisie.Key == ConsoleKey.Enter)
     {
-        // On avance à l'étape suivante.
+        // On avance à l'étape suivante uniquement s'il appuie sur Entrée.
         monProfil.EtapeActuelle++;
+        // Sauvegarde automatique et silencieuse de l'avancée de l'étape.
+        Sauvegarde.SauvegarderProfil(monProfil, true);
     }
 }
