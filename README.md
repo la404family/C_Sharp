@@ -22,5 +22,6 @@ Ce dossier contient des fiches factuelles et intemporelles expliquant les choix 
 - [INFO_StructureProjet.md](INFOS/Architecture/INFO_StructureProjet.md) : Explique le concept de séparation des responsabilités, le rôle de routeur, et l'organisation en modules.
 - [INFO_NavigationSauvegarde.md](INFOS/Architecture/INFO_NavigationSauvegarde.md) : Détaille l'utilisation des boucles de contrôle (`while`), des instructions conditionnelles (`if`), et le fonctionnement de l'écriture/lecture de données dans un fichier texte.
 - [INFO_TableauxObjets.md](INFOS/Architecture/INFO_TableauxObjets.md) : Explique l'utilisation de classes conteneurs (Programmation Orientée Objet) et des Tableaux (`Arrays`) pour structurer et sauvegarder de multiples données complexes.
-- [INFO_LaConsole.md](INFOS/Architecture/INFO_LaConsole.md) : Détaille l'utilisation de la classe System.Console pour gérer les entrées/sorties, les couleurs, le curseur et l'interactivité avancée.
-- [INFO_LesVariables.md](INFOS/Architecture/INFO_LesVariables.md) : Explique en profondeur la gestion des données, le typage, la portée, et la conversion de types en C#.
+- [La Console (Entrées/Sorties, couleurs, curseur)](INFOS/Architecture/INFO_LaConsole.md)
+- [Les Variables (Types, Portée, Conversion)](INFOS/Architecture/INFO_LesVariables.md)
+- [Passage par Référence (ref et out)](INFOS/Architecture/INFO_RefEtOut.md)

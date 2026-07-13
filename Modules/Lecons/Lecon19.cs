@@ -53,10 +53,10 @@ namespace MonPremierProjet.Modules.Lecons
             Console.WriteLine("------------------");
             Console.WriteLine("Tu as remarqué que notre écran se nettoie à chaque nouvelle leçon ?");
             Console.WriteLine("C'est grâce à la méthode 'Console.Clear()'.");
-            Console.WriteLine("Attention, l'écran va s'effacer dans 3 secondes... Observe bien !");
+            Console.WriteLine("Attention, l'écran va s'effacer dans 20 secondes... Observe bien !");
             
-            // "Thread.Sleep(3000)" met le programme en pause pendant 3000 millisecondes (3 secondes).
-            Thread.Sleep(3000);
+            // "Thread.Sleep(20000)" met le programme en pause pendant 20000 millisecondes (20 secondes).
+            Thread.Sleep(20000);
             
             // On efface tout !
             Console.Clear();

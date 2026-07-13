@@ -59,10 +59,10 @@ Il nettoie automatiquement la mémoire de votre ordinateur en supprimant les obj
             // Petit espace visuel
             Console.WriteLine("\n--- Comment ils travaillent ensemble (Le Flux) ---\n");
             
-            Console.WriteLine(@"Voici ce qui se passe quand vous appuyez sur ""Play"" dans Visual Studio :
+            Console.WriteLine(@"Voici le cycle de vie complet de votre programme :
 
-1. ✍️ Écriture : Vous écrivez du code C#.
-2. ⚙️ Compilation (Roslyn) : Le compilateur C# (Roslyn) vérifie votre code. S'il est bon, il le transforme 
+1. ✍️ Écriture : Vous rédigez votre code C# dans l'éditeur.
+2. ⚙️ Clic sur ""Play"" (Compilation par Roslyn) : Le compilateur C# vérifie votre code. S'il est bon, il le transforme 
    non pas en code machine, mais en fichier .dll ou .exe contenant du Code IL (le code standardisé par la CLI).
 3. 🚀 Exécution (CLR) :
    - Vous lancez le programme.

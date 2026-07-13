@@ -29,13 +29,17 @@ Il n'y a pas d'interface graphique compliquée, ni de fenêtres, ni de boutons.
 L'ordinateur lit simplement ce que vous tapez, et écrit ses réponses en texte brut. 
 C'est l'environnement d'apprentissage idéal pour se concentrer à 100% sur la logique !
 
-=== Pourquoi faire du code Modulaire ? ===
-Imaginez si l'intégralité de ce cursus, de la sauvegarde et des quiz était 
-écrite dans un seul et unique fichier... Il ferait des dizaines de milliers de lignes !
-Le code deviendrait très vite illisible et dangereux à modifier.
+=== Le concept de Modularité ===
+Avant de plonger dans la création de fichiers, vous devez comprendre un principe vital : la Modularité.
+Qu'est-ce que cela veut dire ? 
+Être ""modulaire"", c'est tout simplement découper son programme en petites ""briques"" séparées (les Modules).
 
-Séparer la logique consiste à découper son programme en petites ""briques"" (les Modules).
-Chaque fichier ne s'occupe que d'une seule tâche précise (ce qu'on appelle la Responsabilité Unique).
+Pourquoi faire cela ? 
+Imaginez si l'intégralité de ce projet (la sauvegarde, les quiz, l'affichage) 
+était écrite dans un seul et immense fichier texte... Il ferait des milliers de lignes !
+Le code deviendrait très vite illisible, effrayant et dangereux à modifier.
+
+Chaque fichier de ce projet ne s'occupe donc que d'une seule tâche précise (la Règle de Responsabilité Unique).
 Par exemple : 
 - ""Sauvegarde.cs"" ne gère que la sauvegarde, il ne dessine rien à l'écran.
 - Chaque Leçon possède son propre fichier, sans interférer avec les autres.

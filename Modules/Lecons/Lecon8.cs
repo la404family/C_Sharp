@@ -27,10 +27,10 @@ namespace MonPremierProjet.Modules.Lecons
 
 --- Comment ils travaillent ensemble (Le Flux) ---
 
-Voici ce qui se passe quand vous appuyez sur ""Play"" dans Visual Studio :
+Voici le cycle de vie complet de votre programme :
 
-1. ✍️ Écriture : Vous écrivez du code C#.
-2. ⚙️ Compilation (Roslyn) : Le compilateur C# vérifie votre code. S'il est bon, il le transforme 
+1. ✍️ Écriture : Vous rédigez votre code C# dans l'éditeur.
+2. ⚙️ Clic sur ""Play"" (Compilation par Roslyn) : Le compilateur C# vérifie votre code. S'il est bon, il le transforme 
    non pas en code machine, mais en fichier .dll ou .exe contenant du Code IL (le code standardisé par la CLI).
 3. 🚀 Exécution (CLR) :
    - Vous lancez le programme.
@@ -62,48 +62,21 @@ Voici ce qui se passe quand vous appuyez sur ""Play"" dans Visual Studio :
 - CIL / IL : Code intermédiaire. Le ""langage universel"" entre ton code C# et le processeur.
 - JIT : Compilation Just-In-Time. Traduit le code IL en code machine au moment de l'exécution.");
 
-            Console.WriteLine("\nAppuyez sur une touche pour la FAQ et les erreurs courantes...");
+            Console.WriteLine("\nAppuyez sur une touche pour voir les erreurs courantes et l'analogie...");
             Console.ReadKey();
             Afficheur.NettoyerEcran();
 
-            Console.WriteLine(@"--- ❓ Questions fréquentes ---
-
-Q : Le CLR est-il le compilateur ?
-❌ Non ! Le CLR est le runtime. Il contient un compilateur JIT qui traduit le code IL en code machine, mais ce n'est pas lui qui compile ton code C#.
-
-Q : Roslyn est-il le compilateur ?
-✅ Oui ! Roslyn est le compilateur officiel de C#. Il analyse ton code, détecte les erreurs et le transforme en code IL.
-
-Q : Quelle est la différence entre compilation et exécution ?
-- La compilation (Roslyn) vérifie ton code et le transforme en IL -> tu obtiens un fichier .dll ou .exe.
-- L'exécution (CLR) prend ce fichier IL et le fait tourner sur ta machine grâce au JIT.
-
---- ⚠️ Erreurs courantes des débutants ---
+            Console.WriteLine(@"--- ⚠️ Erreurs courantes des débutants ---
 
 ❌ Confondre CLI (Common Language Infrastructure) avec CLI (Command Line Interface - terminal).
 ❌ Penser que le CLR est un compilateur classique. En réalité, il fait de la compilation JIT (au moment de l'exécution).
-❌ Croire que le code C# s'exécute directement par le processeur. C'est en fait : C# -> IL (Roslyn) -> Code machine (CLR/JIT).");
-
-            Console.WriteLine("\nAppuyez sur une touche pour la conclusion...");
-            Console.ReadKey();
-            Afficheur.NettoyerEcran();
-
-            Console.WriteLine(@"--- ✅ Bonnes pratiques ---
-- Utilise toujours la dernière version LTS de .NET.
-- Retiens le flux : Code C# -> Roslyn -> IL -> CLR/JIT -> Code machine.
-- Quand on te parle de CLI en contexte .NET, pense infrastructure, pas terminal.
+❌ Croire que le code C# s'exécute directement par le processeur. C'est en fait : C# -> IL (Roslyn) -> Code machine (CLR/JIT).
 
 --- 🧠 L'analogie pour tout retenir (La recette de cuisine) ---
 📖 CLI = Le livre de recettes standardisé (les règles)
 👨‍🍳 Roslyn = Le chef qui lit ta recette (C#) et la traduit en instructions universelles (IL)
 🍳 CLR = La cuisine équipée qui exécute les instructions
-🔥 JIT = L'adaptation en temps réel selon le four disponible (ton processeur)
-
---- 🎯 Si on te demande : ---
-- ""Qui est le compilateur C# ?"" -> Roslyn
-- ""Qui exécute le code ?"" -> Le CLR
-- ""Qu'est-ce que le code IL ?"" -> Le code intermédiaire
-- ""CLI et PEP 8, c'est pareil ?"" -> Non ! CLI = fondation technique, PEP 8 = guide de style.");
+🔥 JIT = L'adaptation en temps réel selon le four disponible (ton processeur)");
 
             Console.WriteLine("\nFélicitations, l'architecture .NET n'a plus de secrets pour vous !");
         }

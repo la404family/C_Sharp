@@ -109,7 +109,16 @@ namespace MonPremierProjet.Modules
                 case 31:
                     Quizz6.Executer(profilActuel);
                     break;
-                // Si aucune leçon n'est trouvée (le chiffre de l'étape dépasse 31), c'est que le cursus est terminé !
+                case 32:
+                    Lecon26.Afficher();
+                    break;
+                case 33:
+                    Lecon27.Afficher();
+                    break;
+                case 34:
+                    Quizz7.Executer(profilActuel);
+                    break;
+                // Si aucune leçon n'est trouvée (le chiffre de l'étape dépasse 34), c'est que le cursus est terminé !
                 // Grâce à ce fonctionnement dynamique, cette boucle s'adapte automatiquement à l'ajout de futures étapes.
                 default:
                     Afficheur.NettoyerEcran();

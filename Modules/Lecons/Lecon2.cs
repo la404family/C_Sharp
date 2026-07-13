@@ -22,7 +22,6 @@ namespace MonPremierProjet.Modules.Lecons
             // "Console.WriteLine" écrit le texte entre guillemets et passe automatiquement à la ligne suivante.
             Console.WriteLine("--- ETAPE 2 : EXPLICATION DU PROJET ---\n");
             Console.WriteLine("Bienvenue ! Dans ce projet, vous allez apprendre les bases de C#.");
-            Console.WriteLine("Nous allons créer ensemble un programme interactif pas à pas.\n");
 
             // Utilisation d'une chaîne Verbatim (@) pour afficher un long texte formaté avec des sauts de ligne.
             // On double les guillemets ("") à l'intérieur pour les afficher correctement.
